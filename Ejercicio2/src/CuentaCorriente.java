@@ -18,12 +18,12 @@ public class CuentaCorriente extends Cuenta{
 
     @Override
     public void extraer(BigDecimal monto) throws ErrorExtraccion {
-        if(monto.compareTo(this.monto.add(this.sobreGiro)) < 0){
+        if(monto.compareTo(this.monto.add(this.sobreGiro)) <= 0 && monto.compareTo(new BigDecimal("0")) > 0){
             if(monto.compareTo(this.monto) == 1){
                 this.sobreGiro.subtract(monto.subtract(this.monto));
                 this.cambiarMonto(this.monto);
             }else{
-                this.cambiarMonto(monto);
+                this.cambiarMonto(this.monto.subtract(monto));
             }
         }else{
             StringBuilder mensaje = new StringBuilder();

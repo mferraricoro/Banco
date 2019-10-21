@@ -49,6 +49,16 @@ public class TestCliente {
     }
 
     @Test
+    public void extraerNegativo() throws ErrorExtraccion {
+        try {
+            cuenta1.extraer(new BigDecimal("-1000"));
+            Assert.fail();
+        } catch(ErrorExtraccion e){
+            Assert.assertEquals(new BigDecimal("3600"), cuenta1.obtenerMonto());
+        }
+    }
+
+    @Test
     public void extraerSinSaldo(){
         try {
             cuenta1.extraer(new BigDecimal("6000"));

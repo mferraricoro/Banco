@@ -10,7 +10,7 @@ public class CuentaAhorro extends Cuenta {
 
     @Override
     public void extraer(BigDecimal monto) throws ErrorExtraccion {
-        if(this.monto.compareTo(monto) >= 0){
+        if(this.monto.compareTo(monto) >= 0 && monto.compareTo(new BigDecimal("0")) > 0){
             this.monto = this.monto.subtract(monto);
         }else{
             StringBuilder mensaje = new StringBuilder();

@@ -18,7 +18,6 @@ public abstract class Cuenta{
         this.monto = monto;
     }
 
-
     protected void cambiarMonto(BigDecimal monto) {
         this.monto = monto;
     }
