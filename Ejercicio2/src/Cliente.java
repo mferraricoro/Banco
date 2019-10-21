@@ -23,6 +23,8 @@ public class Cliente {
         this.cuentas.put(cuenta.obtenerCbu(), cuenta);
     }
 
+
+
     public HashMap<Integer, Cuenta> obtenerCuentas(){
         return this.cuentas;
     }

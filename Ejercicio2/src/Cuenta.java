@@ -5,9 +5,16 @@ public abstract class Cuenta{
     public Integer cbu;
 
     public abstract void extraer(BigDecimal monto) throws ErrorExtraccion;
-    public void depositar(BigDecimal monto){
-        //Varia dependiendo que tipo de cuenta es.
-    };
+
+    public void depositar(BigDecimal monto) throws ErrorDeposito {
+        if (monto.compareTo(new BigDecimal("0")) > 0){
+            this.monto = this.monto.add(monto);
+        }else{
+            StringBuilder mensaje = new StringBuilder();
+            mensaje.append("Error: Quisiste depositar un monto invalido: ").append(monto);
+            throw new ErrorDeposito(mensaje.toString());
+        }
+    }
 
     public BigDecimal obtenerMonto() {
         return this.monto;

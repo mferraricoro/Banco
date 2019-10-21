@@ -12,6 +12,8 @@ public class TestBanco {
     @Before
     public void creandoCosas(){
         banco = new Banco();
+        cliente = new Cliente(1,"nombre", "apellido");
+        cuenta = new CuentaCorriente(1, new BigDecimal("1000"), new BigDecimal("100"));
     }
 
     @Test

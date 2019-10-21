@@ -19,10 +19,6 @@ public class CuentaAhorro extends Cuenta {
         }
     }
 
-    public void depositar(BigDecimal monto){
-        this.monto = this.monto.add(monto);
-    }
-
     public void cambiarTasaInteres(BigDecimal tasaInteres){
         this.tasaInteres = tasaInteres;
     }
